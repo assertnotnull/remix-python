@@ -6,6 +6,9 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import { SocketProvider } from "./context";
+import { useState, useEffect } from "react";
+import { Socket, io } from "socket.io-client";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -26,5 +29,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const [socket, setSocket] = useState<Socket>();
+
+  useEffect(() => {
+    const socket = io();
+    setSocket(socket);
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!socket) return;
+    socket.on("confirmation", (data) => {
+      console.log(data);
+    });
+  }, [socket]);
+
+  return (
+    <SocketProvider socket={socket}>
+      <Outlet />
+    </SocketProvider>
+  );
 }
