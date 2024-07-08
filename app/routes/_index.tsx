@@ -1,4 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -13,34 +14,22 @@ export default function Index() {
       <h1 className="text-3xl">Welcome to Remix</h1>
       <ul className="list-disc mt-4 pl-6 space-y-2">
         <li>
-          <a
+          <Link
             className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/quickstart"
+            to="/invoke"
             rel="noreferrer"
           >
-            5m Quick Start
-          </a>
+            Load async python script
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/tutorial"
+            to="/shell"
             rel="noreferrer"
           >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
+            Fabric youtube video review
+          </Link>
         </li>
       </ul>
     </div>
