@@ -1,4 +1,4 @@
-# Welcome to Remix!
+# Welcome to Remix + Python!
 
 - 📖 [Remix docs](https://remix.run/docs)
 
@@ -6,7 +6,7 @@
 
 # Requirements
 
-Install PNPM if not present
+Install [PNPM](https://pnpm.io/) if not present
 Install [Rye (for Python)](https://rye.astral.sh/) if not present
 
 # Actual installation
