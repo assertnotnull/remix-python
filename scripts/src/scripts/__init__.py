@@ -22,10 +22,7 @@ async def wait_with_timeout():
 
 # A main async function that runs the wait_with_timeout function
 async def task():
-    try:
-        await wait_with_timeout()
-    except:
-        print("Timeout exception")
+    await wait_with_timeout()
 
 
 # Run the main async function
